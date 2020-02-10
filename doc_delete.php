@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+<?php require('mysql/config.php'); ?>
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" charset=utf-8 />
@@ -7,14 +8,13 @@
 <body>
 
 <?php
-  require('mysql/config.php');
   require('authen_role.php');
 
   if($authen_role<1){
 ?>
 <script language="javascript">
   alert('กรุณาทำการลงทะเบียนเข้าสู่ระบบ');
-  window.location.replace("index.php");
+  window.location.replace("authen_remove.php");
 </script>
 
 <?php
