@@ -25,7 +25,7 @@
 <?php
 	}
 ?>
-<?php require('mysql/config.php'); ?>
+<?php require('web_mainmenu.php'); ?>
 <?php
   $rcid=$_GET['rcid'];
 	require('doc_select.php');
@@ -38,7 +38,7 @@
 ชนิดหนังสือ : <?php echo($arrdoctype[$doctype]); ?><br />
 เรื่อง : <?php echo($docsubj); ?><br />
 ผู้ออก : <?php echo($docauth); ?><br />
-เนื้อความ(ย่อ) : <br /><?php echo($doccont); ?><br />
+เนื้อความ(ย่อ) : <br /><?php echo(str_replace("\n","<br />", $doccont)); ?><br />
 Link &gt;&gt; : <a href="file_detail.php?rcid=<?php echo($rcid); ?>" target="_blank">เอกสาร</a>
 <br /><br /><br />
 <a href="doc_form.php?rcid=<?php echo($rcid); ?>">แก้ไข</a>
