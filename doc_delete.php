@@ -10,7 +10,7 @@
 <?php
   require('authen_role.php');
 
-  if($authen_role<1){
+  if($authenrole<1){
 ?>
 <script language="javascript">
   alert('กรุณาทำการลงทะเบียนเข้าสู่ระบบ');
@@ -30,7 +30,13 @@
   else {
     $rcid="";
   }
-  
+
+  $sql="SELECT doccate FROM documents WHERE rcid='$rcid'";
+  require('mysql/connect.php');
+  $record=mysqli_fetch_array($result);
+  $doccate=(int)$record[0];
+  require('mysql/unconn.php');
+
   $sql="DELETE FROM documents WHERE rcid='$rcid'";
   require('mysql/connect.php');
 
@@ -49,7 +55,7 @@
   var v1=<?php echo($v1); ?>;
   alert('<?php echo($msg); ?>');
   if(v1==1) {
-    window.location.replace("index.php");
+    window.location.replace("index.php?$doccate=<?php echo($doccate); ?>");
   }
   else {
     window.history.back();

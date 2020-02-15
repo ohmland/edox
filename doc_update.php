@@ -10,7 +10,7 @@
 <?php
   require('authen_role.php');
 
-  if($authen_role<1){
+  if($authenrole<1){
 ?>
 <script language="javascript">
   alert('กรุณาทำการลงทะเบียนเข้าสู่ระบบ');
